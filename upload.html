@@ -12,30 +12,30 @@
       padding: 40px;
       display: flex;
       justify-content: center;
-      align-items: center;
       min-height: 100vh;
     }
     .card {
       background: white;
-      padding: 50px 40px;
+      padding: 40px;
       border-radius: 16px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.15);
       max-width: 480px;
       width: 100%;
+    }
+    h1 { text-align: center; color: #000; margin-bottom: 10px; }
+    .account {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
       text-align: center;
     }
-    h1 { color: #000; margin-bottom: 8px; }
-    p { color: #666; margin-bottom: 30px; }
     .upload-area {
       border: 3px dashed #0066cc;
       border-radius: 12px;
-      padding: 50px 20px;
-      margin: 20px 0;
+      padding: 40px 20px;
+      margin: 25px 0;
       cursor: pointer;
-      transition: all 0.3s;
-    }
-    .upload-area:hover {
-      background: #f8fbff;
     }
     button {
       background: #000;
@@ -45,32 +45,27 @@
       font-size: 17px;
       border-radius: 50px;
       cursor: pointer;
-      margin-top: 20px;
       width: 100%;
+      margin-top: 10px;
     }
-    button:hover { background: #333; }
-    #file-name {
-      margin: 15px 0;
-      font-weight: bold;
-      color: #0066cc;
-      min-height: 24px;
-    }
-    .success {
-      color: #28a745;
-      font-weight: bold;
-      margin-top: 25px;
-      display: none;
-    }
+    #file-name { margin: 15px 0; font-weight: bold; color: #0066cc; }
+    .success { color: #28a745; font-weight: bold; margin-top: 20px; display: none; }
   </style>
 </head>
 <body>
 
 <div class="card">
   <h1>SOK Auto</h1>
-  <p>Upload your video to TikTok</p>
+  <p style="text-align:center;">Upload Video to TikTok</p>
+
+  <!-- Fake Connected Account -->
+  <div class="account">
+    <p><strong>Connected as:</strong> @testcreator123</p>
+    <p style="font-size:0.9em; color:#28a745;">✓ TikTok Account Connected</p>
+  </div>
 
   <div class="upload-area" onclick="document.getElementById('fileInput').click()">
-    <p>Click here to select an MP4 video</p>
+    <p>Click to select MP4 video</p>
     <input type="file" id="fileInput" accept="video/mp4" style="display:none;" onchange="showFileName(this)">
   </div>
 
@@ -94,14 +89,14 @@
     
     button.disabled = true;
     button.textContent = "Uploading to TikTok...";
-    
+
     status.style.display = "block";
-    status.textContent = "Processing and sending video...";
+    status.textContent = "Sending video to your TikTok account...";
 
     setTimeout(() => {
-      status.textContent = "✅ Video successfully uploaded to your TikTok Drafts!";
+      status.textContent = "✅ Video successfully uploaded to Drafts!";
       button.textContent = "Upload Complete";
-    }, 2500);
+    }, 2400);
   }
 </script>
 
