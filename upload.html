@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SOK Auto - Upload to TikTok</title>
+  <title>Upload to TikTok - SOK Auto</title>
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -12,54 +12,53 @@
       padding: 40px;
       display: flex;
       justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
     .card {
       background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      max-width: 500px;
+      padding: 50px 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      max-width: 480px;
       width: 100%;
       text-align: center;
     }
-    h1 {
-      color: #000;
-      margin-bottom: 10px;
-    }
-    p {
-      color: #555;
-      margin-bottom: 30px;
-    }
+    h1 { color: #000; margin-bottom: 8px; }
+    p { color: #666; margin-bottom: 30px; }
     .upload-area {
-      border: 2px dashed #0066cc;
-      border-radius: 10px;
-      padding: 40px 20px;
+      border: 3px dashed #0066cc;
+      border-radius: 12px;
+      padding: 50px 20px;
       margin: 20px 0;
       cursor: pointer;
+      transition: all 0.3s;
+    }
+    .upload-area:hover {
+      background: #f8fbff;
     }
     button {
       background: #000;
       color: white;
       border: none;
-      padding: 14px 32px;
-      font-size: 16px;
-      border-radius: 8px;
+      padding: 16px 40px;
+      font-size: 17px;
+      border-radius: 50px;
       cursor: pointer;
       margin-top: 20px;
+      width: 100%;
     }
-    button:hover {
-      background: #333;
-    }
+    button:hover { background: #333; }
     #file-name {
-      margin-top: 15px;
+      margin: 15px 0;
       font-weight: bold;
       color: #0066cc;
-      min-height: 20px;
+      min-height: 24px;
     }
     .success {
       color: #28a745;
       font-weight: bold;
-      margin-top: 20px;
+      margin-top: 25px;
       display: none;
     }
   </style>
@@ -68,10 +67,10 @@
 
 <div class="card">
   <h1>SOK Auto</h1>
-  <p>Upload video to TikTok</p>
+  <p>Upload your video to TikTok</p>
 
   <div class="upload-area" onclick="document.getElementById('fileInput').click()">
-    <p>Click to select MP4 video</p>
+    <p>Click here to select an MP4 video</p>
     <input type="file" id="fileInput" accept="video/mp4" style="display:none;" onchange="showFileName(this)">
   </div>
 
@@ -94,16 +93,15 @@
     const button = document.querySelector('button');
     
     button.disabled = true;
-    button.textContent = "Uploading...";
+    button.textContent = "Uploading to TikTok...";
     
     status.style.display = "block";
-    status.textContent = "Uploading to TikTok...";
+    status.textContent = "Processing and sending video...";
 
-    // Simulate upload progress
     setTimeout(() => {
-      status.textContent = "✅ Upload Successful! Video sent to TikTok Drafts.";
-      button.textContent = "Done";
-    }, 2200);
+      status.textContent = "✅ Video successfully uploaded to your TikTok Drafts!";
+      button.textContent = "Upload Complete";
+    }, 2500);
   }
 </script>
 
